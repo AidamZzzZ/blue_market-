@@ -1,0 +1,39 @@
+.container-confirm-delete {
+	margin: 20px auto;
+	border: 1px solid;
+	width: 500px;
+	padding: 10px;
+}
+
+.container-btn-delete {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.btn-cancel,
+.btn-confirm {
+	margin: 5px;
+	border: none;
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	padding: 7px 10px;
+	transition: 1s;
+}
+
+.btn-confirm {
+	background-color: blue;
+	border-radius: 2px;
+}
+
+.btn-cancel {
+	background-color: red;
+	border-radius: 2px;
+}
+
+.btn-confirm:hover,
+.btn-cancel:hover {
+	filter: brightness(0.7);
+}

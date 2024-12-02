@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- CREAR Y/O AGREGAR PRODUCTO -->
+<form method="post" enctype="multipart/form-data" class="form-container-create">
+<h2>Add New Product</h2>
+	{% csrf_token %}
+	{{ form | crispy }}
+	<h4>Import Dataset</h4>
+	<a href="{% url 'import_products' %}">Import Products</a>
+	<input type="submit" id="create" value="Create" class="btn-form">
+</form>
+
+{% endblock %}
+
+

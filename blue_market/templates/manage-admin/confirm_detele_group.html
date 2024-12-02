@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-group">
+	<h3 class="group-subtitle container">Are you sure want to delete the group {{ group.name }}?</h3>
+	<form method="post">
+		{% csrf_token %}
+		<div class="btn-group-confirm">
+			<a href="{% url 'manage_groups' %}" class="btn-cancel">Cancel</a>
+			<button type="submit" class="btn-confirm-del">Yes, delete</button>
+		</div>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mt-5 mb-5 title">My Sales</h2>
+<table class="table table-bordered container text-center">
+	<thead>
+    <tr>
+    	<th>ID</th>
+		<th>Product</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th>Image</th>
+	</tr>
+  	</thead>
+  	<tbody class="table-group-divider">
+  	<!-- VER MIS VENTAS -->
+    {% for s in seller %}
+	<tr>
+		<td>{{ s.id }}</td>
+		<td>{{ s.product.title|truncatechars:30 }}</td>
+		<td>${{ s.product.price }}</td>
+		<td>{{ s.quantity }}</td>
+		<td><img src="{{ s.product.image.url }}" alt="{{ s.product.image.title }}" class="mx-auto d-block"></td>
+	{% empty %}
+	<td><p>You have not sales any product</p></td>
+	<td></td>
+	<td></td>
+	{% endfor %}
+	</tr>
+  	</tbody>
+</table>
+<div>
+	{% include 'paginator.html' %}
+</div>
+{% endblock %}

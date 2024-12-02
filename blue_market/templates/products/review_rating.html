@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-rating">
+	<div class="form-rating">
+		<h3>Leave your review</h3>
+		<!-- FORMULARIO DE ENVIO DE RATING (ESTRELLITAS Y COMENTARIO) -->
+		<form method="post">
+			{% csrf_token %}
+			<input type="hidden" name="product_id" value="{{ product.id }}">
+			<div class="rate">
+			    <input type="radio" id="star-5" name="rating" value="5" />
+			    <label for="star-5" title="text">5 stars</label>
+			    <input type="radio" id="star-4" name="rating" value="4" />
+			    <label for="star-4" title="text">4 stars</label>
+			    <input type="radio" id="star-3" name="rating" value="3" />
+			    <label for="star-3" title="text">3 stars</label>
+			    <input type="radio" id="star-2" name="rating" value="2" />
+			    <label for="star-2" title="text">2 stars</label>
+			    <input type="radio" id="star-1" name="rating" value="1" />
+			    <label for="star-1" title="text">1 star</label>
+			</div>	
+			<div class="rating-comment">
+				<input type="text" name="comment" required/>
+			</div>
+			<div class="input-rating">	
+				<input type="submit" value="Rating" class="btn-rating">
+			</div>
+		</form>
+	</div>
+	<hr>
+	<div class="comments">
+		<h4>Reviews</h4>
+		<!-- MOSTRAR REVIEWS ANTERIORES -->
+		{% for r in reviews %}
+			<p><span class="username-product">@{{ r.user.username}}</span></p>
+			<p><span class="date-review">{{ r.date }}</span></p>
+			<p>{{ r.comment}} </p>
+			<hr>	
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

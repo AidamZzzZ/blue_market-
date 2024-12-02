@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mt-5 mb-5 title">My Purchases</h2>
+<table class="table table-bordered container text-center">
+	<thead>
+    <tr>
+    	<th>ID</th>
+		<th>Product</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th>Image</th>
+		<th>Actions</th>
+	</tr>
+  	</thead>
+  	<tbody class="table-group-divider">
+  	<!-- VER MIS COMPRAS -->
+    {% for p in purchases %}
+	<tr>
+		<td>{{ p.id }}</td>
+		<td>{{ p.product.title|truncatechars:30 }}</td>
+		<td>${{ p.product.price }}</td>
+		<td>{{ p.quantity }}</td>
+		<td><img src="{{ p.product.image.url }}" alt="{{ p.product.image.title }}" class="mx-auto d-block"></td>
+		<td>
+			<a href="{% url 'review' p.product.id %}" class="btn-review">Add Review</a>
+		</td>
+	{% empty %}
+	<td><p>You have not purchased any product</p></td>
+	<td></td>
+	<td></td>
+	{% endfor %}
+	</tr>
+  	</tbody>
+</table>
+<div>
+	{% include 'paginator.html' %}
+</div>
+{% endblock %}

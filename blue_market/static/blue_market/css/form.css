@@ -1,0 +1,76 @@
+body {
+	height: 100vh;
+}
+
+/* FORMULARIOS */
+.form-container-login input,
+.form-container-signup input,{
+	width: 100%;
+}
+
+.form-container-login,
+.form-container-signup,
+.form-container-create,
+.form-container-password {
+	padding: 10px;
+	background-color: #f5f6f7;
+	margin: 20px auto;
+	width: 450px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+
+.form-container-signup .title {
+	text-align: center;
+	font-size: 40px;
+	text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-container-login .title {
+	text-align: center;
+	margin: 30px;
+	text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+	font-size: 40px;
+}
+
+/* BOTONES DE FORMULARIOS */
+.form-container-signup .btn-form {
+	margin: auto;
+	display: block;
+	background-color: #2468dc;
+	border: none;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+	font-size: 18px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+
+.form-container-login .btn-form,
+.form-container-create .btn-form,
+.form-container-password .btn-form {
+	margin: 0 auto;
+	display: block;
+	background-color: #2468dc;
+	border: none;
+	margin-top: 20px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+	font-size: 18px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+
+.form-container-login .btn-form:hover,
+.form-container-signup .btn-form:hover,
+.form-container-create .btn-form:hover,
+.form-container-password .btn-form:hover {
+	background-color: #205bc1;
+}
+
+.form-container-login .btn-form:active,
+.form-container-signup .btn-form:active,
+.form-container-create .btn-form:active,
+.form-container-password .btn-form:active {
+	transform: scale(0.9);
+}

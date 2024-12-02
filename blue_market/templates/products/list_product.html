@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mt-5 mb-5 title">My products</h2>
+<a href="{% url 'report_product' %}" class="link-import">import my products</a>
+<table class="table table-bordered container text-center">
+  <thead>
+    <tr>
+		<th>Product</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th>Image</th>
+		<th>Options</th>
+	</tr>
+  </thead>
+  <!-- MOSTRAR MIS PRODUCTOS PUBLICADOS -->
+  <tbody class="table-group-divider">
+    {% for p in products %}
+	
+	<tr>
+		<td><p>{{ p.title|truncatechars:30 }}</a></p></td>
+		<td><p>{{ p.description|truncatechars:30 }}</p></td>
+		<td>${{ p.price }}</td>
+		<td><img src="{{ p.image.url }}" alt="{{ p.image.title }}" class="mx-auto d-block"></td>
+		<td>
+			<a href="{% url 'upladoad_products' p.pk %}" class="btn btn-primary">edit</a>
+			{% if 'Can delete product' in permissions %}
+			<a href="{% url 'delete_product' p.pk %}" class="btn btn-secondary" 
+			>delete</a>
+			{% endif %}
+		</td>
+	</tr>
+
+	{% endfor %}
+  </tbody>
+</table>
+<div>
+	{% include 'paginator.html' %}
+</div>
+{% endblock %}
+

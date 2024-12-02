@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="group-title">Add new group and permissions</h2>
+<div class="container-add-grp">
+    <form method="post">
+        {% csrf_token %}
+        <h3 class="add-subtitle">Group</h3>
+        <label for="group_name">Group Name:</label>
+        <input type="text" id="group_name" name="group_name" required>
+        <hr>
+        <h3 class="add-subtitle">Permissions</h3>
+        {% for permission in permissions %}
+            <label>
+                <input type="checkbox" name="permissions" value="{{ permission.id }}">
+                {{ permission.name }}
+            </label><br>
+        {% endfor %}
+        <hr>
+        <h3 class="add-subtitle">Users</h3>
+        {% for user in users %}
+            <label>
+                <input type="checkbox" name="users" value="{{ user.id }}">
+                {{ user.username }}
+            </label><br>
+        {% endfor %}
+
+        <button type="submit" class="btn-save">Guardar</button>
+    </form>
+</div>
+{% endblock %}

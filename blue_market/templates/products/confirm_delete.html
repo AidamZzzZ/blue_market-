@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-confirm-delete">
+	<form method="post">
+		{% csrf_token %}
+		<h3>Confirm delete product</h3>
+		<div class="container-btn-delete">
+			<a href="{% url 'list_products' %}" class="btn-cancel">Cancel</a>
+			<button type="submit" class="btn-confirm">confirm</button>
+		</div>
+	</form>
+</div>
+{% endblock %}

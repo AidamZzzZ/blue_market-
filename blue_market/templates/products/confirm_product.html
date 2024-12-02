@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="product-container">
+	<div class="img-container">
+		<!-- DETALLES DE PRODUCTO -->
+		<div class="caracteristics-product">
+			<h2 class="detail-buy">Detail Buy</h2>
+			<h2 class="title-product">{{ product.title }}</h2>
+			<p class="price-detail">${{ product.price }}</p>
+			<p>Stock: {{ product.stock }}</p>
+			<hr>
+			<p>{{ product.description }}</p>
+		</div>
+	</div>
+	<div>
+		<div class="security-msg">
+			<h4>Method Payout</h4>
+			<!-- ELIGE UN METODO DE PAGO Y CONFIRMA LA COMPRA -->
+			<form method="POST" action="{% url 'confirm_product' product.id %}">
+			    {% csrf_token %}
+			    {{ form | crispy }}
+			    <button type="submit" class="button-confirm">Confirm Buy</button>
+			</form>
+		</div>
+		<div class="security-msg">
+			<h4>Safety tips</h4>
+			<ul>
+				<li><p>Watch out if they mention quick moving sales.</p></li>
+				<li><p>Do not pay without personally verifying the documentation and the status of the product.</p></li>
+				<li><p>Be suspicious of offers below the market price.</p></li>
+				<li><p>Do not use anonymous payment services (eg Western Union), or send money abroad.</p></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}

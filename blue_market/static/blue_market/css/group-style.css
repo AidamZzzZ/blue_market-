@@ -1,0 +1,134 @@
+/* MANAGE ACCOUNTS */
+.group-title {
+	text-align: center;
+	margin: 20px auto 20px;
+}
+
+.container-group {
+	width: 50%;
+	margin: 20px auto;
+	display: block;
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.container-group a {
+	text-decoration: none;
+}
+
+.container-group .btn-add-grp {
+	background-color: gray;
+	color: white;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+.container-group .btn-add-grp:hover {
+	filter: brightness(0.9);
+}
+
+.inline-hr {
+	width: 100%;
+}
+
+.group-name {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.subtitle-group {
+	margin: 15px auto 15px;
+	font-size: 35px;
+}
+
+.btn-update-grp,
+.btn-delete-grp {
+	text-align: center;
+	margin: 5px 5px;
+	padding: 5px 10px;
+}
+
+.btn-update-grp {
+	background-color: green;
+	color: #f5f6f7;
+}
+
+.btn-delete-grp {
+	background-color: red;
+	color: white;
+}
+
+.btn-update-grp:hover,
+.btn-delete-grp:hover {
+	filter: brightness(0.8);
+}
+
+.container-register-grp {
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* ADD GROUP */
+.container-add-grp {
+	width: 500px;
+	border: 1px solid;
+	border-radius: 10px;
+	display: block;
+	margin: 10px auto;
+	padding: 20px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.add-subtitle {
+	text-decoration-line: underline;
+	text-align: center;
+}
+
+.btn-save {
+	border: none;
+	color: white;
+	padding: 10px;
+	background-color: blue;
+	border-radius: 5px;
+	display: block;
+	margin: 5px auto;
+}
+
+.btn-save:hover {
+	filter: brightness(0.7);
+}
+
+/* CONFIRM DELETE */
+.container-group .btn-group-confirm {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	margin: 20px;
+}
+
+.btn-group-confirm .btn-cancel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: red;
+	padding: 5px;
+	margin-right: 10px;
+	color: #f5f6f7;
+}
+
+.btn-group-confirm .btn-cancel:hover {
+	filter: brightness(0.7);
+}
+
+.btn-confirm-del {
+	border: none;
+	color: white;
+	background-color: blue;
+}
+
+.btn-confirm-del:hover {
+	filter: brightness(0.7);
+}

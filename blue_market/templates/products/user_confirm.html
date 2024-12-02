@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- CARTA DE CONFIRMACION DE VENTA DE PRODUCTO -->
+<div class="card-data">
+	<img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099__340.png">
+	<h2>Buy confirm</h2>
+	<h4 class="sub-title">Seller Data</h4>
+	<p><strong>Name:</strong> <span class="data">{{ transaction.product.user }}</span></p>
+	<p><strong>Email:</strong> <span class="data">{{ transaction.product.user.email }}</span></p>
+	<p><strong>Phone:</strong> <span class="data">{{ transaction.product.user.phone_number }}</span></p>
+	<h4 class="sub-title">Product Detail</h4>
+	<p><strong>Name:</strong> <span class="data">{{ transaction.product.title }}</span></p>
+	<p><strong>Price:</strong> <span class="data">${{ transaction.product.price }}</span></p>
+	<p><strong>Quantity:</strong> <span class="data">{{ transaction.quantity }}</span></p>
+	<p><strong>Total:</strong> <span class="data">${{ total_cost }}</span></p>
+</div>
+{% endblock %}

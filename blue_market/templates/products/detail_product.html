@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="product-container">
+	<!-- DETALLE DE PRODUCTO -->
+	<div class="img-container">
+		<img src="{{ product.image.url }}">
+		<hr>
+		<div class="caracteristics-product">
+			<h2>Product characteristics</h2>
+			<p>{{ product.description }}</p>
+		</div>
+	</div>
+	<div>
+		<div class="detail-product">
+			<h2>{{ product.title }}</h2>
+			<p class="price-detail">${{ product.price }}</p>
+			<!-- STOCK DEL PRODUCTO Y PROMEDIO RATING -->
+			<p><span class="stock">Stock: {{ product.stock }}</span></p>
+			<p><span class="rating-score">Rating:</span> <span class="score">{{ product_average|floatformat:1  }}</span>⭐</p>
+			<hr>
+			<!-- MENSAJES DE ERROR -->
+		    {% for message in messages %}
+		        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+		            {{ message }}
+		            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		        </div>
+		    {% endfor %}
+			<!-- COMPRA O DEJAR UNA RESEÑA -->
+			<form action="{% url 'confirm_product' product.pk %}">
+				<input type="submit" name="btn-buy" id="btn-buy" value="Buy" class="btn-buy">	
+			</form>
+		</div>
+		<div class="security-msg">
+			<h4>Safety tips</h4>
+			<ul>
+				<li><p>Watch out if they mention quick moving sales.</p></li>
+				<li><p>Do not pay without personally verifying the documentation and the status of the product.</p></li>
+				<li><p>Be suspicious of offers below the market price.</p></li>
+				<li><p>Do not use anonymous payment services (eg Western Union), or send money abroad.</p></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="comment-content">
+	<!-- AGREGAR  UN COMENTARIO -->
+	<h4>Comments</h4>
+	<div>
+		<form method="post" action="{% url 'comment_sent' product.id %}">
+			{% csrf_token %}
+			{{ form | crispy }}
+			<input type="submit" name="submit_comment" value="Comment">
+		</form>
+	</div>
+	<hr>
+	<!-- MOSTRAR COMENTARIOS DEL PRODUCTO CON DETALLES DE LOS USUARIOS -->
+	{% for comment in product.comments %}
+	<div class="comment">
+		<p><span class="author-comment">{{ comment.author }}</span></p>
+		<p><span class="date-comment">{{ comment.created_at }}</span></p>
+		<hr>
+		<p>{{ comment.text }}</p>
+		<details>
+		<!-- MOSTRAR LAS RESPUESTAS DE ESOS COMENTARIOS SI TIENEN -->
+		{% for reply in comment.replies.all %}
+			<div class="comment-reply">
+				<p><span class="author-comment">{{ reply.author.username }}</span></p>
+				<p><span class="date-comment">{{ reply.created_at }}</span></p>
+				<p><span>{{ reply.text }}</span></p>
+				<hr>
+			</div>			
+		{% endfor %}
+			<!-- AGREGAR UNA RESPUESTA A UN COMENTARIO -->
+			<form method="post" action="{% url 'reply_sent' comment.id %}">
+				{% csrf_token %}
+				{{ replyform | crispy }}
+				<input type="submit" name="reply_comment" id="reply_comment">
+			</form>
+		</details>	
+	</div>
+	{% empty %}
+	<p>Not Comments</p>
+	{% endfor %}
+</div>
+{% endblock %}

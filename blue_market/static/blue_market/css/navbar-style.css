@@ -1,0 +1,30 @@
+body {
+	background-color: #f5f6f7;
+}
+
+/* NAVBAR */
+nav {
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title-company {
+	margin-left: 20px;
+}
+.name-user {
+	text-align: center;
+	font-size: 18px;
+	color: #c4dafa;
+}
+
+.btn-logout {
+	background-color: #84b6f4;
+	text-decoration: none;
+	margin-left: 5px; 
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s ease-inf;
+}
+
+.btn-logout:hover {
+	background-color: #ecd6c0;
+}

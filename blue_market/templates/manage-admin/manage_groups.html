@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="group-title">Manage groups and permissions</h2>
+<div class="container-group">
+    <h3 class="container subtitle-group">Groups</h3>
+    <a href="{% url 'add_group' %}" class="btn-add-grp container">Add Group</a>
+    <ol>
+        <hr class="inline-hr">
+        {% for group in groups %}
+            <li>
+                <div class="container-register-grp">
+                    <div>
+                        <span class="group-name">{{ group.name }}</span>
+                    </div>
+                    <div>
+                        <a href="{% url 'edit_group' group.pk %}" class="btn-update-grp">update</a>
+                        <a href="{% url 'delete_group' group.pk %}" class="btn-delete-grp">delete</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

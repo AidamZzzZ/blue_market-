@@ -1,0 +1,136 @@
+/* DETALLES DE PRODUCTO */
+.title-product a {
+	color: black;
+}
+
+.title-product a:hover {
+	color: #0152fe;
+}
+
+/* CONTENEDORES DE DETALLE DE PRODUCTO */
+.product-container {
+	margin: 20px auto;
+	width: 900px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+	padding: 50px;
+}
+
+.img-container img {
+	width: 300px;
+	margin: 10px;
+	display: block;
+	margin: auto;
+}
+
+.detail-product, 
+.security-msg {
+	width: 400px;
+	margin: 5px;
+	border: 1px solid gray;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.detail-product h2 {
+	font-size: 30px;
+}
+
+.price-detail {
+	font-size: 50px;
+}
+
+.caracteristics-product {
+	width: 400px;
+	margin: 5px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.caracteristics-product h2 {
+	font-size: 30px;
+}
+
+.btn-buy {
+	background-color: #0152fe;
+	border: none;
+	padding: 20px 100px; 
+	border-radius: 10px;
+	font-size: 18px;
+	color: white;
+	width: 100%;
+	display: block;	
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+	text-align: center;
+	text-decoration: none;
+	transition: 1s ease;
+}
+
+.btn-buy:hover {
+	filter: brightness(0.9);
+}
+
+.btn-buy:active {
+	transform: scale(0.9);
+}
+
+/* COMENTARIOS EN DETALLES DE PRODUCTO */
+.comment-content {
+	width: 900px;
+	margin: 20px auto;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.comment-content form {
+	width: 100%;
+}
+
+.comment-content form 
+input {
+	margin-top: 10px;
+}
+
+.comment {
+	border: 1px solid #4d82dc;
+	padding: 10px;
+	margin-top: 2px;
+}
+
+.author-comment {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.date-comment {
+	font-size: 14px;
+	margin-top: -19px;
+	display: block;
+	color: gray;
+}
+
+.comment-reply {
+	display: block;
+	padding: 20px;
+}
+
+.button-confirm {
+	background-color: #0152fe;
+	border: none;
+	padding: 5px 7px;
+	margin-top: 5px;
+	color: white;
+}
+
+.button-confirm:hover {
+	filter: brightness(0.8);
+}
+
+.divisas-pay,
+.debito-pay {
+	display: block;
+}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 class="text-center mt-5 mb-5 title">Products</h2>
+<nav class="navbar bg-body-tertiary mb-3 w-50 mx-auto">
+  <div class="container-fluid">
+    <form class="d-flex mx-auto" role="search">
+      <input class="form-control me-2 mx-auto" type="search" name="search" placeholder="Search" aria-label="Search" value="{{ query }}">
+      <select name="order_by">
+				<option value="">Select an option</option>
+				<option value="price_asc" {% if order_by == 'price_asc' %}selected{% endif %}> Price-</option>
+				<option value="price_desc" {% if order_by == 'price_desc' %}selected{% endif %}>Price+</option>
+				<option value="rating" {% if order_by == 'rating' %}selected{% endif %}>Rating</option>
+			</select>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- TABLA DE PRODUCTOS --> 
+<table class="table table-bordered container text-center">
+  <thead>
+    <tr>
+		<th>Product</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th>Image</th>
+		<th>User</th>
+	</tr>
+  </thead>
+  <tbody class="table-group-divider">
+    {% for p in products %}
+	
+	<tr>
+		<td><p class="title-product"><a href="{% url "detail_product" p.id %}">{{ p.title|truncatechars:30 }}</a></p></td>
+		<td><p class="description-product">{{ p.description|truncatechars:30 }}</p></td>
+		<td><p class="price-product">${{ p.price }}</p></td>
+		<td><p><img src="{{ p.image.url }}" alt="{{ p.image.title }}" class="mx-auto d-block"></p></td>
+		<td>
+			<p><span class="username-product">@{{ p.user }}</span></p>
+		</td>
+	</tr>
+
+	{% endfor %}
+  </tbody>
+</table>
+<div>
+	{% include 'paginator.html' %}
+</div>
+{% endblock %}
+
+
+
+

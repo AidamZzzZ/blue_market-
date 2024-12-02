@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- EDITAR UN PRODUCTO CREADO -->
+<form method="post" enctype="multipart/form-data" class="form-container-create">
+	<h2>Update Product</h2>
+	{% csrf_token %}
+	{{ form | crispy}}
+	<input type="submit" id="create" value="Update" class="btn-form">
+</form>
+
+{% endblock %}
+
+
